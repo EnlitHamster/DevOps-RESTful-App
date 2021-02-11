@@ -14,7 +14,6 @@ db_dir_path = tempfile.gettempdir()
 db_file_path = os.path.join(db_dir_path, "students.json")
 student_db = TinyDB(db_file_path)
 
-
 def add_student(student):
     queries = []
     query = Query()
@@ -31,12 +30,13 @@ def add_student(student):
 
 
 def get_student_by_id(student_id, subject):
-    student = student_db.get(doc_id=int(student_id))
+    student: Student = student_db.get(doc_id=int(student_id))
     if not student:
         return student
     student = Student.from_dict(student)
-    if not subject:
+    if (not subject) or (subject in student.grades.keys()):
         return student
+    return None
 
 
 def delete_student(student_id):
@@ -44,4 +44,3 @@ def delete_student(student_id):
     if not student:
         return student
     student_db.remove(doc_ids=[int(student_id)])
-    return student_id
