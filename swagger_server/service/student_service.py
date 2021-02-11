@@ -30,13 +30,18 @@ def add_student(student):
 
 
 def get_student_by_id(student_id, subject):
-    student: Student = student_db.get(doc_id=int(student_id))
+    student = student_db.get(doc_id=int(student_id))
     if not student:
         return student
     student = Student.from_dict(student)
     if (not subject) or (subject in student.grades.keys()):
         return student
     return None
+
+
+def get_student_by_last_name(last_name):
+    res = student_db.search(Query().last_name == last_name)
+    return res
 
 
 def delete_student(student_id):
