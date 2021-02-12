@@ -14,7 +14,10 @@ db_dir_path = tempfile.gettempdir()
 db_file_path = os.path.join(db_dir_path, "students.json")
 student_db = TinyDB(db_file_path)
 
+
 def add_student(student):
+    if not student.first_name or not student.last_name:
+        return 'Invalid input', 405
     queries = []
     query = Query()
     queries.append(query.first_name == student.first_name)
@@ -23,7 +26,6 @@ def add_student(student):
     res = student_db.search(query)
     if res:
         return 'already exists', 409
-
     doc_id = student_db.insert(student.to_dict())
     student.student_id = doc_id
     return student.student_id
