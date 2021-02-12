@@ -30,8 +30,8 @@ script:
 - node_modules/.bin/newman run tests/postman_collection.json -e tests/postman_environment.json
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker tag enlitowl/devops-app/swagger_server enlitowl/devops-app/swagger_server
-- docker push enlitowl/devops-app/swagger_server
+- docker tag enlitowl/devops-app:travis enlitowl/devops-app:travis
+- docker push enlitowl/devops-app:travis
 env:
   global:
   - secure: PUSecOW3U1thyA0dQBcgzE3c1V2OIxRrPVR5Yu3QA+w7HnMVfqKgKGzmpFp5totBNNOLbFf0p2yWOXkuTGDWljRXU15HiXqXag03p5ZVjtwk/O+I8FFFG7PBVsTYzGlFyGvIIIxc2iXPSLCwqat/7DQ+sldj4Euwt2lvUBvwvpgXysNkbjGtT159Xy2hekhDUB/Pw8t8hiIeQY2uZOni/dF40vShZH9bk+lkRIqwkcteMLR5YkNr2+hPr6cK0WGn+b553KsNO80yxiQdIqzul3LN9CkIAIVO8tPewqs10Pha2oF/ZQEVy1gAzXJTOAKMq00udnNAW6LOek6vXSF/e1UtJLF6w9li1+zYB6qVWnI829rYpfysuC3lr1n8jlUXFnBXTfEjIHzmkkhkNVFpcpWaAfiq+JgyitRb7Vyym+1fAHbipMVFnRDqB+d3dsiy4amqxF0JS7btCp8SHJVys2CJAauWJkiiiLSJIlvZZpEnFIPzWAowIgGjxnrPaRcvMWyUs1ac9rs+GO77qcFTFISnh2Kx8PA48lrCptH2/dDIJQFftt1lXNVvQI9ZXJDPKilNzIjkLlf39962eaMj3JCXeVEgiVClAfIxvDBlZqJSasfMvrmGLSm+QUQoSZpAQheUYyKOp96HQh0A5wX+tjHY9bi+DqlBB9qnOQXgz64=
