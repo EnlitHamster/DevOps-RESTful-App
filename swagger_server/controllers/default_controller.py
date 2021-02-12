@@ -22,9 +22,9 @@ def add_student(body):  # noqa: E501
 
 
 def delete_student(student_id):  # noqa: E501
-    """delete_student
+    """Delete student by ID
 
-     # noqa: E501
+     Deletes a single student # noqa: E501
 
     :param student_id: ID of student to return
     :type student_id: int
@@ -54,3 +54,20 @@ def get_student_by_id(student_id, subject=None):  # noqa: E501
         return res
     return 'Not Found', 404
 
+
+def get_student_by_last_name(last_name):  # noqa: E501
+    """Find student by last names
+
+    Returns a single student # noqa: E501
+
+    :param last_name: Last name of student to return
+    :type last_name: string
+
+    :rtype: Student
+    """
+    print("Test 1")
+    res = student_service.get_student_by_last_name(last_name)
+    print("Test 2")
+    if res:
+        return res
+    return 'Not Found', 404
