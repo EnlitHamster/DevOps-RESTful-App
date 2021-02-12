@@ -46,6 +46,6 @@ def get_student_by_last_name(last_name):
 
 def delete_student(student_id):
     student = student_db.get(doc_id=int(student_id))
-    if not student:
-        return student
-    student_db.remove(doc_ids=[int(student_id)])
+    if student:
+        student_db.remove(doc_ids=[int(student_id)])
+    return student
