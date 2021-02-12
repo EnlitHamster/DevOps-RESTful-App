@@ -2014,7 +2014,7 @@
 								"exec": [
 									"tests[\"Status code is 200\"] = responseCode.code === 200;",
 									"tests[\"Response should not be 'do some magic!'\"] = responseBody != \"do some magic!\";",
-									"var jsonData = JSON.parse(responseBody);",
+									"var jsonData = JSON.parse(responseBody)[0];",
 									"",
 									"",
 									"first_name = postman.getEnvironmentVariable(\"first_name\");",
