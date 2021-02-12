@@ -65,9 +65,7 @@ def get_student_by_last_name(last_name):  # noqa: E501
 
     :rtype: Student
     """
-    print("Test 1")
     res = student_service.get_student_by_last_name(last_name)
-    print("Test 2")
     if res:
         return res
     return 'Not Found', 404
